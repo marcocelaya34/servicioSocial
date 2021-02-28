@@ -12,6 +12,11 @@ import { UnidadIVComponent } from './todo/unidad-iv/unidad-iv.component';
 import { ReferenciasComponent } from './todo/referencias/referencias.component';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './todo/header/header.component';
+import { NgxAudioPlayerModule } from 'ngx-audio-player';
+import { PodcastComponent } from './todo/podcast/podcast.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+
 
 @NgModule({
   declarations: [
@@ -23,13 +28,16 @@ import { HeaderComponent } from './todo/header/header.component';
     UnidadIIIComponent,
     UnidadIVComponent,
     ReferenciasComponent,
-    HeaderComponent
+    HeaderComponent,
+    PodcastComponent    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
-    
+    RouterModule,
+    NgxAudioPlayerModule,
+    BrowserAnimationsModule,
+    MatSliderModule
   ],
   providers: [
     appRoutingProviders
