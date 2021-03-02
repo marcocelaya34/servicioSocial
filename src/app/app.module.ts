@@ -1,5 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+import es from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(es);
 
 import { AppRoutingModule, appRoutingProviders } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +16,14 @@ import { UnidadIVComponent } from './todo/unidad-iv/unidad-iv.component';
 import { ReferenciasComponent } from './todo/referencias/referencias.component';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './todo/header/header.component';
+import { NgxAudioPlayerModule } from 'ngx-audio-player';
+import { PodcastComponent } from './todo/podcast/podcast.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { CalendarComponent } from './todo/calendar/calendar.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
 
 @NgModule({
   declarations: [
@@ -23,16 +35,22 @@ import { HeaderComponent } from './todo/header/header.component';
     UnidadIIIComponent,
     UnidadIVComponent,
     ReferenciasComponent,
-    HeaderComponent
+    HeaderComponent,
+    PodcastComponent,
+    CalendarComponent    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
-    
+    RouterModule,
+    NgxAudioPlayerModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [
-    appRoutingProviders
+    appRoutingProviders,
+    { provide: LOCALE_ID, useValue: 'es-ES' }
   ],
   bootstrap: [AppComponent]
 })
